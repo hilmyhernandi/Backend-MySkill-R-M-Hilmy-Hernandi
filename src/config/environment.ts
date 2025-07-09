@@ -9,5 +9,5 @@ export const environments = {
     port: process.env.REDIS_PORT,
   },
   jwt: process.env.JWT_SECRET,
-  session: process.env.SESSION_SECRET,
+  sessionKey: process.env.SESSIONS_SECRET,
 };
