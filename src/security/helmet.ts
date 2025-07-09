@@ -1,5 +1,5 @@
 import helmet, { HelmetOptions } from "helmet";
-import { environments } from "../config/environment";
+import { environments } from "../config/env.config";
 const isProduction = environments.mode === "production";
 
 const helmetOptions: HelmetOptions = {
@@ -35,4 +35,4 @@ const helmetOptions: HelmetOptions = {
   originAgentCluster: true,
 };
 
-export const HelmetConfig = helmet(helmetOptions);
+export const helmetConfig = helmet(helmetOptions);

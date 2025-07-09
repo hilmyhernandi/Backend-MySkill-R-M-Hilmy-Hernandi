@@ -1,8 +1,8 @@
 import { web } from "./web";
 import { logger } from "./config/logger";
-import { environments } from "./config/environment";
-import { connectDB } from "./connections/databases";
-import { redisConnection } from "./connections/redis";
+import { environments } from "./config/env.config";
+import { connectDB } from "./connections/mongodb.connections";
+import { redisConnection } from "./connections/redis.connections";
 
 const port = environments.port;
 

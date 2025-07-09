@@ -5,16 +5,16 @@ export const setSession = (
   userId: string,
   username: string
 ): void => {
-  req.session.userId = userId;
+  req.session.usersId = userId;
   req.session.username = username;
 };
 
 export const updateSession = (
   req: Request,
-  userId?: string,
+  usersId?: string,
   username?: string
 ): void => {
-  if (userId) req.session.userId = userId;
+  if (usersId) req.session.usersId = usersId;
   if (username) req.session.username = username;
 };
 

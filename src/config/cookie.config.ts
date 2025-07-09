@@ -1,5 +1,5 @@
 import { CookieOptions } from "express";
-import { environments } from "./environment";
+import { environments } from "./env.config";
 
 const isProduction = environments.mode === "production";
 

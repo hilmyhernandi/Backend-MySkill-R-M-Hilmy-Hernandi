@@ -1,5 +1,5 @@
 import Redis from "ioredis";
-import { environments } from "../config/environment";
+import { environments } from "../config/env.config";
 import { logger, loggerRedis } from "../config/logger";
 
 export const redisConnection = new Redis({

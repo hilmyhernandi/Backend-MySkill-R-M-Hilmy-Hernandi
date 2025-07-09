@@ -3,8 +3,8 @@ import rateLimit, {
   Options,
 } from "express-rate-limit";
 import { RedisStore, RedisReply } from "rate-limit-redis";
-import { redisConnection } from "../connections/redis";
-import { IRedisMessage } from "../interfaces/interfaceRedisMessage";
+import { redisConnection } from "../connections/redis.connections";
+import { IRedisMessage } from "../interfaces/messages/redis-message.interface";
 import { loggerRedis } from "../config/logger";
 import { Request, Response, NextFunction } from "express";
 

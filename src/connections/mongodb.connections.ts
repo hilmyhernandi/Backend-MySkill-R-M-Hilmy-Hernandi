@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { environments } from "../config/environment";
+import { environments } from "../config/env.config";
 import { loggerDB } from "../config/logger";
 
 const uriDB = environments.databases;

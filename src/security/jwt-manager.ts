@@ -1,13 +1,14 @@
 import jwt from "jsonwebtoken";
 import { errorResponse } from "../error/error";
-import { IJwtPayload } from "../interfaces/interfaceJwt";
+import { IJwtPayload } from "../interfaces/auth/jwt-auth.interface";
+import { environments } from "../config/env.config";
 
 class jwtManager {
   private readonly secret: string;
   private readonly expiresIn: number;
 
   constructor(
-    secret: string = process.env.JWT_SECRET!,
+    secret: string = environments.mode!,
     expiresIn: number = 60 * 60 * 24
   ) {
     this.secret = secret;
@@ -24,11 +25,11 @@ class jwtManager {
     try {
       const decoded = jwt.verify(token, this.secret);
       if (typeof decoded === "string") {
-        throw new errorResponse("Invalid token payload", 401);
+        throw new errorResponse("invalid token payload", 401);
       }
       return decoded as IJwtPayload;
     } catch (err) {
-      throw new errorResponse("Invalid or expired token", 401);
+      throw new errorResponse("invalid or expired token", 401);
     }
   }
 }

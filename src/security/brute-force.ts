@@ -1,8 +1,8 @@
 import rateLimit, { Options } from "express-rate-limit";
 import { RedisStore, RedisReply } from "rate-limit-redis";
-import { redisConnection } from "../connections/redis";
-import redisService from "../service/redisService";
-import { IRedisMessage } from "../interfaces/interfaceRedisMessage";
+import { redisConnection } from "../connections/redis.connections";
+import redisService from "../service/redis.service";
+import { IRedisMessage } from "../interfaces/messages/redis-message.interface";
 
 export class bruteForceProtector {
   private readonly windowMs: number;
@@ -30,7 +30,7 @@ export class bruteForceProtector {
       message: {
         success: false,
         statusCode: 429,
-        message: "Too many login attempts. Please try again later.",
+        message: "too many login attempts, please try again later",
       } satisfies IRedisMessage,
       handler: (_req, res, _next, options: Options) => {
         const msg = options.message as IRedisMessage;

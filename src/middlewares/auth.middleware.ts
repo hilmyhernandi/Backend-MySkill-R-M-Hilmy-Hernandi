@@ -1,6 +1,6 @@
 import { Response, NextFunction } from "express";
-import { AuthRequest } from "../interfaces/costume/interfaceAuth";
-import { jwtOptions } from "../security/jwt";
+import { AuthRequest } from "../interfaces/request/auth-request.interface";
+import { jwtOptions } from "../security/jwt-manager";
 import { errorResponse } from "../error/error";
 
 export const jwtMiddleware = (

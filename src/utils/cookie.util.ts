@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-import { cookieOptions } from "../config/cookie";
+import { cookieOptions } from "../config/cookie.config";
 
 export const setCookie = (
   res: Response,

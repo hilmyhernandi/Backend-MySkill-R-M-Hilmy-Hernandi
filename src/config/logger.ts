@@ -1,6 +1,6 @@
 import winston from "winston";
 import DailyRotateFile from "winston-daily-rotate-file";
-import { environments } from "./environment";
+import { environments } from "./env.config";
 import path from "path";
 
 const isProduction = environments.mode === "production";
