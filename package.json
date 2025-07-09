@@ -15,7 +15,10 @@
   "type": "commonjs",
   "main": "src/web.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --ignore node_modules --delay 100ms --exec ts-node src/server.ts",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
