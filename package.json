@@ -16,6 +16,8 @@
   "main": "src/web.ts",
   "scripts": {
     "dev": "nodemon --ignore node_modules --delay 100ms --exec ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "test": "jest --passWithNoTests",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

@@ -92,7 +92,7 @@ const deleteUser = async (req: Request, res: Response, next: NextFunction) => {
       );
     }
 
-    const isUsersId = await redisService.getRedisValue(`user:${usersId}`);
+    const isUsersId = await redisService.getRedisValue(`users:${usersId}`);
     if (!isUsersId) {
       throw new errorResponse(
         "user does not have access, failed to delete profile",

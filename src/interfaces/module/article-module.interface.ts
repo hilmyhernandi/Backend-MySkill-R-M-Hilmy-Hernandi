@@ -1,5 +1,4 @@
 import mongoose, { Document } from "mongoose";
-
 export interface IArticle extends Document {
   status: "draft" | "published";
   title: string;

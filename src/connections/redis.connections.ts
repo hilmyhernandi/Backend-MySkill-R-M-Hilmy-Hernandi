@@ -4,12 +4,14 @@ import { logger, loggerRedis } from "../config/logger";
 
 export const redisConnection = new Redis({
   host: environments.redis.host,
-  port: Number(environments.redis.port),
+  port: environments.redis.port,
+  username: environments.redis.username,
+  password: environments.redis.password,
   retryStrategy: (times: number) => {
     const delay = Math.min(times * 100, 2000);
     if (times > 10) {
       loggerRedis.error(
-        "Redis failed to reconnect after multiple attempts. Exiting"
+        "redis failed to reconnect after multiple attempts. Exiting"
       );
       process.exit(1);
     }
@@ -18,23 +20,23 @@ export const redisConnection = new Redis({
 });
 
 redisConnection.on("connect", () => {
-  loggerRedis.info("redis connected success");
+  loggerRedis.info("redis Cloud connected successfully");
 });
 
 redisConnection.on("close", () => {
   loggerRedis.error("redis connection closed unexpectedly");
-  logger.error("Critical: redis connection closed, shutting down server");
+  logger.error("critical: Redis connection closed, shutting down server");
   process.exit(1);
 });
 
 redisConnection.on("end", () => {
-  loggerRedis.error("redis connection ended");
-  logger.error("Critical: redis connection ended, exiting process");
+  loggerRedis.error("Redis connection ended");
+  logger.error("critical: Redis connection ended, exiting process");
   process.exit(1);
 });
 
 redisConnection.on("reconnecting", (delay: number) => {
-  loggerRedis.warn(`Attempting to reconnect to redis in ${delay}ms`);
+  loggerRedis.warn(`reconnecting to Redis in ${delay}ms`);
 });
 
 redisConnection.on("error", (err: Error) => {

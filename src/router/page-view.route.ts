@@ -1,5 +1,3 @@
-// src/route/page-view.route.ts
-
 import { Router } from "express";
 import pageViewController from "../controllers/page-view.controller";
 import { jwtMiddleware } from "../middlewares/auth.middleware";

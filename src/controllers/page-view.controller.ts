@@ -1,5 +1,3 @@
-// src/controller/page-view.controller.ts
-
 import { Request, Response, NextFunction } from "express";
 import { errorResponse } from "../error/error";
 import pageViewService from "../service/page-view.service";
