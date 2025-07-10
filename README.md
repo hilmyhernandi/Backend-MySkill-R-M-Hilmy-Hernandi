@@ -10,6 +10,14 @@ Ini adalah backend API untuk aplikasi CMS Blog. Dibangun menggunakan **Express.j
 [https://backend-myskill-r-m-hilmy-hernandi-production.up.railway.app](https://backend-myskill-r-m-hilmy-hernandi-production.up.railway.app)
 
 ---
+## Local
+
+Cara menjalankan project di local
+
+- npm install
+- npm run dev
+
+---
 
 ## Postman Collection
 
