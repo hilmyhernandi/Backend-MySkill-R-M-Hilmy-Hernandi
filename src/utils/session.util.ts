@@ -1,4 +1,5 @@
 import { Request } from "express";
+import { errorResponse } from "../error/error";
 
 export const setSession = (
   req: Request,
@@ -25,4 +26,15 @@ export const destroySession = (req: Request): Promise<void> => {
       resolve();
     });
   });
+};
+
+export const getSessionUserId = (req: Request): string => {
+  const userId = req.session?.usersId;
+  if (!userId) {
+    throw new errorResponse(
+      "access denied, user is not logged in or session has expired",
+      401
+    );
+  }
+  return userId;
 };

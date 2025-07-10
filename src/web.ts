@@ -5,6 +5,7 @@ import { helmetConfig } from "./security/helmet";
 import { errorHandlers } from "./middlewares/error-handlers.middleware.";
 import authRouter from "./router/auth.router";
 import usersRouter from "./router/users.router";
+import articleRouter from "./router/articel.router";
 
 export const web: Application = express();
 
@@ -15,4 +16,5 @@ web.use(sessionConfig);
 web.use(helmetConfig);
 web.use("/api/auth", authRouter);
 web.use("/api/users", usersRouter);
+web.use("/api/articels", articleRouter);
 web.use(errorHandlers);
