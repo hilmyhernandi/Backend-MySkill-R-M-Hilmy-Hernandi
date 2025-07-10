@@ -46,7 +46,7 @@ const aggregatePageViews = async (
   next: NextFunction
 ) => {
   try {
-    const { interval = "daily", article, startAt, endAt } = req.query;
+    const { interval = "daily", articleId, startAt, endAt } = req.query;
 
     if (!["hourly", "daily", "monthly"].includes(interval.toString())) {
       throw new errorResponse("invalid interval format", 400);
@@ -54,7 +54,7 @@ const aggregatePageViews = async (
 
     const data = await pageViewService.aggregateViews(
       interval as "hourly" | "daily" | "monthly",
-      article?.toString(),
+      articleId?.toString(),
       startAt?.toString(),
       endAt?.toString()
     );
