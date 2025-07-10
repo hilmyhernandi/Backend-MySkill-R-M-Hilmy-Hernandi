@@ -13,7 +13,7 @@ import pageViewRouter from "./router/page-view.route";
 
 export const web: Application = express();
 const rateLimit = new rateLimiter(15 * 60 * 1000, 100);
-
+web.set("trust proxy", 1);
 web.use(express.json());
 web.use(express.urlencoded({ extended: true }));
 web.use(cookieParser());
